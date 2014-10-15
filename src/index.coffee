@@ -1,3 +1,4 @@
+_           = require 'underscore'
 Q           = require 'q'
 https       = require 'https'
 debug       = require('debug')('gistem:api')
@@ -27,8 +28,8 @@ class gistem
                          if result
                             @token = result.token
                             resolve @token 
-                         else
-                            _createToken({@user, @password}).then resolve, reject, notify
+                         else 
+                            @_createToken({@user, @password}).then resolve, reject, notify
                 else 
                     reject res.statusCode
                     do res.abort
@@ -102,6 +103,27 @@ class gistem
                     reject res.statusCode
                     do req.abort
             req.end body
+    remove: (id)->
+        reqOpts = 
+            hostname: 'api.github.com'
+            port: '443'
+            path: "/gists/#{id}"
+            auth: "#{@token}:x-oauth-basic"
+            method: 'DELETE'
+            headers: 
+                'User-Agent': @user
+
+        Q.Promise (resolve, reject, notify)=>
+            notify id
+            req = https.request reqOpts, (res)=>
+                code = res.statusCode
+                do req.abort
+                if code is 204
+                    notify 'gist removed'
+                    resolve code
+                else
+                    reject code
+            do req.end
     _createToken: ->
         reqOpts = 
             hostname: 'api.github.com'
