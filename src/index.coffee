@@ -1,4 +1,3 @@
-_           = require 'underscore'
 Q           = require 'q'
 https       = require 'https'
 debug       = require('debug')('gistem:api')
