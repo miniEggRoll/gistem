@@ -35,7 +35,7 @@ describe 'github gist api', ->
         it 'create a gist', ->
             @timeout 3000
             payload =
-                'public': false
+                'public': true
                 'description': 'desc'
                 'files': 
                     'file2.txt': 
