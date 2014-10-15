@@ -1,0 +1,26 @@
+{
+  "name": "gistem",
+  "version": "0.0.1",
+  "description": "github gist client for node",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "compile": "./node_modules/.bin/coffee -o lib/ -c src/"
+  },
+  "keywords": [
+    "gist",
+    "coffee-script"
+  ],
+  "author": "Aaron",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.0.0",
+    "goodLuckChuck": "git://github.com/mrsquid0126/goodLuckChunk",
+    "q": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "coffee-script": "^1.8.0",
+    "mocha": "^1.21.5"
+  }
+}
