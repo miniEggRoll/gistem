@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^2.0.0",
-    "goodLuckChuck": "git://github.com/mrsquid0126/goodLuckChunk",
+    "goodLuckChunk": "git://github.com/mrsquid0126/goodLuckChunk",
     "q": "^1.0.1"
   },
   "devDependencies": {
