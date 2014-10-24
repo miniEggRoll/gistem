@@ -31,7 +31,6 @@ class gistem
                             @_createToken({@user, @password}).then resolve, reject, notify
                 else 
                     reject res.statusCode
-                    do res.abort
             do req.end
     get: (id)->
         reqOpts = 
@@ -52,7 +51,6 @@ class gistem
                         resolve JSON.parse data.toString()
                 else
                     reject res.statusCode
-                    do res.abort
             do req.end
     create: (payload)->
         reqOpts = 
@@ -74,7 +72,6 @@ class gistem
                         resolve JSON.parse data.toString()
                 else
                     reject res.statusCode
-                    do req.abort
             req.end JSON.stringify payload
     edit: (id, payload)->
         body = JSON.stringify payload
@@ -100,7 +97,6 @@ class gistem
                         resolve JSON.parse data.toString()
                 else
                     reject res.statusCode
-                    do req.abort
             req.end body
     remove: (id)->
         reqOpts = 
@@ -142,7 +138,6 @@ class gistem
                         resolve token
                 else 
                     reject res.statusCode
-                    do req.abort
 
             req.end JSON.stringify {note: 'gistem', scopes: ['gist']}
     list: ->
