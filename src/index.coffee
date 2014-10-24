@@ -112,7 +112,6 @@ class gistem
             notify id
             req = https.request reqOpts, (res)=>
                 code = res.statusCode
-                do req.abort
                 if code is 204
                     notify 'gist removed'
                     resolve code
@@ -158,7 +157,6 @@ class gistem
                         resolve JSON.parse data.toString()
                 else 
                     reject res.statusCode
-                    do res.abort
             do req.end
 
 module.exports = gistem
