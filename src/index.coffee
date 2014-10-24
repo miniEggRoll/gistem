@@ -1,7 +1,7 @@
 Q           = require 'q'
 https       = require 'https'
 debug       = require('debug')('gistem:api')
-{chunk}     = require 'goodLuckChunk'
+chunk       = require 'goodLuckChunk'
 
 class gistem
     constructor: ({@user, @password})->
